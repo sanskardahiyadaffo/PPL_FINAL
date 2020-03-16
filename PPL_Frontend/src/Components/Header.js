@@ -46,14 +46,16 @@ function Header(props) {
               <img src="/images/flag.png" alt="flag" />
             </div>
             <input type="text" placeholder="Search" className="txt_box" />
-            <Link
-              to="message"
+            {/* <Link
+              to="/message"
+            > */}
+            <div
+              className="msg_box"
               style={{ textDecoration: "None", color: "white" }}
             >
-              <div className="msg_box">
-                <span className="msg_count">0</span>
-              </div>
-            </Link>
+              <span className="msg_count">0</span>
+            </div>
+            {/* </Link> */}
             <UserProfileMenuLagre isLogin={props.isLogin} />
           </div>
         ) : (

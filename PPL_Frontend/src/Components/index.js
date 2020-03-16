@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import RightIndex from "./RightIndex";
 import IndexForPostContent from "./index_postContent";
 import PostWrapper from "./posts_Wrapper";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import UploadPost from "./UploadPost";
 import Axios from "axios";
 import cookie from "react-cookies";
@@ -255,7 +255,11 @@ export default function Index(props) {
             />
           </Switch>
           <Switch>
-            <Route path="/myindex/singlepost/:_id" component={SinglePost} />
+            <Route
+              exact
+              path="/myindex/singlepost/:_id"
+              component={SinglePost}
+            />
             <Route
               path="/myindex"
               component={props =>

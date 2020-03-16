@@ -53,9 +53,9 @@ function Registration(props) {
 
   useEffect(() => {
     console.log("use Effect starts");
-    if (isbtnClicked)
-      document.getElementById("submitBtn").style.opacity = "0.5";
-    else document.getElementById("submitBtn").style.opacity = "1";
+    // if (isbtnClicked)
+    //   document.getElementById("submitBtn").style.opacity = "0.5";
+    // else document.getElementById("submitBtn").style.opacity = "1";
     updateAlerts();
     console.log(isbtnClicked, dataValidation);
     console.log("use Effect sends");
@@ -138,7 +138,17 @@ function Registration(props) {
         dataValidation[ele.name].valid = ele.checked;
         return null;
       }
-
+      if (ele.name === "password") {
+        console.log("This is password");
+        if (ele.value.trim() == "") return null;
+        if (ele.value.length < 8) {
+          dataValidation[ele.name].invalidMessage = "Min Length:8 Char";
+          return null;
+        }
+        dataValidation[ele.name].invalidMessage = "Fill Data";
+        dataValidation[ele.name].valid = true;
+        return null;
+      }
       if (ele.name === "username" && ele.value !== "") {
         check_Validate(ele, dataValidation);
         return null;

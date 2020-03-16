@@ -28,17 +28,19 @@ router.get("/error", () => {
   console.log("Google signin error");
 });
 
-router
-  .route("/google/CB")
-  .get(
-    passport.authenticate("google", { failureRedirect: "/auth/error" }),
-    (req, res) => {
-      console.log("Login Sucessful");
-      res.send(`<script>
+router.route("/google/CB").get(
+  (req, res, next) => {
+    console.log('Google Calback')
+    next();
+  },
+  passport.authenticate("google", { failureRedirect: "/auth/error" }),
+  (req, res) => {
+    console.log("Login Sucessful");
+    res.send(`<script>
       window.close();
       </script>`);
-    }
-  );
+  }
+);
 
 passport.serializeUser((user, done) => {
   //   console.log("Serial");

@@ -48,6 +48,8 @@ export default function SinglePost(props) {
     }
   };
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     getCurrentPost();
     // eslint-disable-next-line
   }, []);

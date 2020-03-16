@@ -20,7 +20,7 @@ function InputWrap(props) {
         name={props.name.toLowerCase()}
         type={props.type || "text"}
         placeholder={props.placeholder}
-        onClick={removeAlert}
+        onChange={removeAlert}
         onFocus={removeAlert}
         defaultValue={props.userCredential || ""}
         defaultChecked={props.checked}
