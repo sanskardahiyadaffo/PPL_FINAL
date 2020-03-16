@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 function Header(props) {
+  const handelSearchBarAtTop = e => {
+    e.preventDefault();
+    if (e.target.value.trim().length !== 0)
+      props.history.push("/myindex/search", { q: e.target.value.trim() });
+    else props.history.push("/myindex");
+  };
   return (
     <div>
       <div className="navbar navbar-inverse navbar-fixed-top">
@@ -45,7 +51,12 @@ function Header(props) {
             <div className="flag_div">
               <img src="/images/flag.png" alt="flag" />
             </div>
-            <input type="text" placeholder="Search" className="txt_box" />
+            <input
+              type="text"
+              placeholder="Search"
+              className="txt_box"
+              onChange={handelSearchBarAtTop}
+            />
             {/* <Link
               to="/message"
             > */}

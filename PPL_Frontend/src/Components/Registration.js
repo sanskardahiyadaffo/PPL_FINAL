@@ -140,7 +140,7 @@ function Registration(props) {
       }
       if (ele.name === "password") {
         console.log("This is password");
-        if (ele.value.trim() == "") return null;
+        if (ele.value.trim() === "") return null;
         if (ele.value.length < 8) {
           dataValidation[ele.name].invalidMessage = "Min Length:8 Char";
           return null;

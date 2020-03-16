@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import RightIndex from "./RightIndex";
 import IndexForPostContent from "./index_postContent";
 import PostWrapper from "./posts_Wrapper";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import UploadPost from "./UploadPost";
 import Axios from "axios";
 import cookie from "react-cookies";
@@ -10,6 +10,7 @@ import { myUrl } from "../credentials";
 import CategoryUpdate from "./CategoryUpdate";
 import SinglePost from "./SinglePost";
 import Timeline from "./Timeline";
+import SearchMenu from "./SearchMenu";
 
 let myInitialCategories = [
   {
@@ -259,6 +260,10 @@ export default function Index(props) {
               exact
               path="/myindex/singlepost/:_id"
               component={SinglePost}
+            />
+            <Route
+              path="/myindex/search"
+              render={p => <SearchMenu {...p} allPost={myAllposts} />}
             />
             <Route
               path="/myindex"
