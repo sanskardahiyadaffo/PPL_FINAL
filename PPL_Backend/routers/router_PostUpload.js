@@ -18,7 +18,7 @@ const getMyMonth = [
   "Dec"
 ];
 let myUploadPath =
-  __dirname.split("PPL_Backend")[0] + "PPL_React_REDUX/public/postUpload";
+  __dirname.split("PPL_Backend")[0] + "PPL_Frontend/public/postUpload";
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
     cb(null, myUploadPath);
